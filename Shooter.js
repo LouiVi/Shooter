@@ -66,7 +66,7 @@ function OnStart()
     
     // Create the scrolling background that fills the canvas width and is twice
     // the canvas height
-    background = new Background(app.CreateImage("Img/GalaxyUno.jpg"), 1.0, 2.0);
+    background = new Background(app.CreateImage("Img/GalaxyTres.jpg"), 2.0, 2.0);
     
     // Load the fighter image sequence. In each image, the fighter is rolling
     // to the left or right, with the centre image being the fighter in it's
@@ -81,9 +81,9 @@ function OnStart()
     fighter = new Fighter(fighterImages);
     fighter.SetCentre(new Point(0.5, 0.85));
     
-    // Create a pool of 4 bullets
+    // Create a pool of 40 bullets
     var imgBullet = app.CreateImage("Img/bullet.png");
-    for(var i = 0; i < 4; i++)
+    for(var i = 0; i < 40; i++)
     {
         var bullet = new Bullet(imgBullet);
         bullets.push(bullet);
@@ -118,7 +118,7 @@ function OnStart()
     txtGameOver.SetTextSize(42);
     txtGameOver.SetTextColor("#FFFFE100");
     layGameOver.AddChild(txtGameOver);
-    btnRetry = app.CreateButton("Retry", 0.25);
+    btnRetry = app.CreateButton("Retry", 0.35);
     btnRetry.SetMargins(0, 0.1, 0, 0);
     btnRetry.SetTextSize(24);
     btnRetry.SetOnTouch(OnRetry);
@@ -410,9 +410,9 @@ function OnCanvasTouch(ev)
         // If we are not currently firing bullets, start firing
         if(fireBulletIntervalTimer == null)
         {
-            // Fire a bullet, then again every 400ms until the Up event
+            // Fire a bullet, then again every 40ms until the Up event
             FireBullet();
-            fireBulletIntervalTimer = setInterval(FireBullet, 400);
+            fireBulletIntervalTimer = setInterval(FireBullet, 40);
         }
     }
 }
